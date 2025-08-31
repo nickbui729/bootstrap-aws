@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Zip-based Lambda deployed with SAM
+
+Resources:
+  HelloFn:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: hello-zip
+      Runtime: python3.12
+      Handler: app.lambda_handler
+      CodeUri: src/               # SAM will zip this folder fo
+      MemorySize: 256
+      Timeout: 15
+      Policies:
+        - AWSLambdaBasicExecutionRole
+      AutoPublishAlias: live
+      DeploymentPreference:       # Optional: safe deployments
+        Type: Canary10Percent5Minutes
