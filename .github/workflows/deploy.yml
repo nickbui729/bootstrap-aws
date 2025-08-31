@@ -25,4 +25,6 @@ jobs:
         run: sam build --template sam-template.yml
 
       - name: Deploy (guided params pre-saved with --config-env ci)
-        run: sam deploy --no-confirm-changeset --config-env ci --stack-name hello-zip-stack --capabilities CAPABILITY_IAM
+        run: sam deploy --config-env ci
+
+
