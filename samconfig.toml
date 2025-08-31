@@ -1,3 +1,5 @@
+version = 0.1
+
 [ci.deploy.parameters]
 stack_name = "hello-zip-stack"
 s3_bucket = "sam-artifacts-542768766351-us-west-1-main"
